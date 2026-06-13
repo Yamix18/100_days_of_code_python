@@ -8,6 +8,19 @@ should_continue_bid = True
 
 bid_dictionary = {}
 
+def find_highest_bid(final_dictionary_bid):
+    winner = ""
+    highest_bid = 0
+
+    max(bid_dictionary)
+    for bidder in bid_dictionary:
+        if highest_bid < bid_dictionary[bidder]:
+            winner = bidder
+            highest_bid = bid_dictionary[bidder]
+
+    print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+
 while should_continue_bid:
     name = input("What is your name: ") 
     bid = int(input("What is you want to bid: $"))
@@ -18,15 +31,7 @@ while should_continue_bid:
 
     if add_bid_again == "no":
         should_continue_bid = False
-        winner = ""
-        highest_bid = 0
-
-        for bid in bid_dictionary:
-            if highest_bid < bid_dictionary[bid]:
-                winner = bid
-                highest_bid = bid_dictionary[bid]
-
-        print(f"The winner is {winner} with a bid of ${highest_bid}")
+        find_highest_bid(final_dictionary_bid= bid_dictionary)
     else:
         print("\n" * 100)
         
